@@ -1,0 +1,23 @@
+default:
+  autoload:
+    '': features/Context
+  formatters:
+    pretty: true
+    progress: false
+  suites:
+    demo:
+      paths:
+        features: features
+      contexts: [FeatureContext]
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        env: test
+        debug: true
+        path: app/AppKernel.php
+        bootstrap: features/Fixtures/Project/app/bootstrap.php
+    Behat\MinkExtension:
+      base_url: 'http://www.acme.dev/app_test.php/'
+      sessions:
+        default:
+          symfony2: ~

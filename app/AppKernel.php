@@ -13,15 +13,10 @@ class AppKernel extends Kernel
         // won't be able to use it.
         $bundles = [
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
-            new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
             new Symfony\Bundle\MonologBundle\MonologBundle(),
-            new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new WhiteOctober\PagerfantaBundle\WhiteOctoberPagerfantaBundle(),
-            new CodeExplorerBundle\CodeExplorerBundle(),
             new AppBundle\AppBundle(),
-            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(), // used for initial population of non-SQLite databases in production envs
             // uncomment the following line if your application sends emails
             // new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
         ];

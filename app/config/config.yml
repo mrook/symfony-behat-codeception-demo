@@ -6,7 +6,6 @@
 # such as the security component and the dependency injection services
 imports:
     - { resource: parameters.yml }
-    - { resource: security.yml }
     - { resource: services.yml }
 
 # These are the configuration parameters that define the application's behavior
@@ -57,25 +56,6 @@ twig:
     form_themes:
         - "bootstrap_3_layout.html.twig"
         - "form/fields.html.twig"
-
-# Doctrine Configuration (used to access databases and manipulate their information)
-doctrine:
-    dbal:
-        # if you don't want to use SQLite, change the URL in parameters.yml or set the DATABASE_URL environment variable
-        url: "%env(DATABASE_URL)%"
-        
-        # instead of using a URL, you may also uncomment the following lines to configure your database
-        # driver:   pdo_mysql
-        # host:     "%database_host%"
-        # port:     "%database_port%"
-        # dbname:   "%database_name%"
-        # user:     "%database_user%"
-        # password: "%database_password%"
-        # charset:  UTF8
-
-    orm:
-        auto_generate_proxy_classes: "%kernel.debug%"
-        auto_mapping: true
 
 # Swiftmailer Configuration (used to send emails)
 # instead of configuring the mailer credentials in this file, we pull
