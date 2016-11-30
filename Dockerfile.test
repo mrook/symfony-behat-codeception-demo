@@ -1,0 +1,18 @@
+FROM ubuntu:xenial
+
+RUN apt-get update -qq -y && \
+  apt-get install -y --no-install-recommends php7.0-cli php7.0-xml php7.0-mbstring php7.0-zip php7.0-curl curl ca-certificates && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN curl -o /usr/local/bin/composer https://getcomposer.org/composer.phar && chmod +x /usr/local/bin/composer
+
+COPY composer.json ./
+COPY composer.lock ./
+
+RUN composer install --no-scripts --no-autoloader
+
+COPY . ./
+
+RUN composer dump-autoload --optimize && \
+	composer run-script post-install-cmd
