@@ -22,7 +22,7 @@ class FeatureContext extends RawMinkContext
      */
     public function iVisitTheHelloWorldPage()
     {
-        $url = empty($this->name) ? '/hello' : sprintf('/hello/%s', $this->name);
+        $url = empty($this->name) ? '/' : sprintf('/%s', $this->name);
 
         $this->getSession()->visit($this->locatePath($url));
     }

@@ -38,7 +38,7 @@ class FunctionalTester extends \Codeception\Actor
      */
     public function iVisitTheHelloWorldPage()
     {
-        $url = empty($this->name) ? '/hello' : sprintf('/hello/%s', $this->name);
+        $url = empty($this->name) ? '/' : sprintf('/%s', $this->name);
         
         $this->amOnPage($url);
     }
